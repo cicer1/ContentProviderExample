@@ -1,3 +1,3 @@
 # ContentProviderExample
-Content providers manage access to a structured set of data.
-This simple Android project shows how to implement a content provider.
+This simple app shows how to benefit of th use of ContentProviders and
+CursorAdapters. Data are presented in a ListView. 
