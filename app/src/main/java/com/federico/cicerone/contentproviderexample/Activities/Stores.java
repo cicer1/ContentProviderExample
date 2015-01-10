@@ -1,16 +1,17 @@
 package com.federico.cicerone.contentproviderexample.Activities;
 
 import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.federico.cicerone.contentproviderexample.adapter.StoreAdapter;
 import com.federico.cicerone.contentproviderexample.Contract.BookContract;
 import com.federico.cicerone.contentproviderexample.R;
 import com.federico.cicerone.contentproviderexample.model.Book;
@@ -19,9 +20,10 @@ import com.federico.cicerone.contentproviderexample.sqlite.ContentProvider;
 import com.federico.cicerone.contentproviderexample.Contract.StoreContract;
 
 
-public class Main extends ActionBarActivity {
+public class Stores extends ActionBarActivity {
 
-    private TextView texttest;
+    private ListView storeList;
+    private StoreAdapter storeAdapter;
     private ContentResolver cr;
     private String logtag = "MainActivity";
 
@@ -29,9 +31,17 @@ public class Main extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        texttest = (TextView) findViewById(R.id.texttest);
         cr = getContentResolver();
+        insertData();
+        storeList = (ListView) findViewById( R.id.store_list );
+        Cursor cursor = ContentProvider.getAllStores( cr );
+        storeAdapter = new StoreAdapter( this, cursor, 0);
+        storeList.setAdapter( storeAdapter );
+        StoreClickListener storeClickListener = new StoreClickListener();
+        storeList.setOnItemClickListener(storeClickListener);
+    }
 
+    private void insertData() {
         Store storeA = new Store( "store A", 12, 40 );
         Store storeB = new Store( "store B", 13, 41 );
 
@@ -47,8 +57,6 @@ public class Main extends ActionBarActivity {
             Book book = new Book("The Prince", "Niccoló Machiavelli", store_crs.getInt( store_crs.getColumnIndex( StoreContract.StoreEntry.COLUMN_NAME_ID ) ) );
             cr.insert( ContentProvider.CONTENT_URI_BOOK, book.getContentValue() );
         }
-        texttest.setText(getInfo());
-        Cursor c =  ContentProvider.getAllBooks(cr);
     }
 
     private String getInfo() {
@@ -86,5 +94,12 @@ public class Main extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class StoreClickListener implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Log.d(logtag, "click");
+        }
     }
 }

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.federico.cicerone.contentproviderexample.contract.BookContract;
-import com.federico.cicerone.contentproviderexample.contract.StoreContract;
+import com.federico.cicerone.contentproviderexample.Contract.BookContract;
+import com.federico.cicerone.contentproviderexample.Contract.StoreContract;
 
 /**
  * Created by cicerone on 09/01/15.

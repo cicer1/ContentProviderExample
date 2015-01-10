@@ -10,8 +10,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
-import com.federico.cicerone.contentproviderexample.contract.BookContract;
-import com.federico.cicerone.contentproviderexample.contract.StoreContract;
+import com.federico.cicerone.contentproviderexample.Contract.BookContract;
+import com.federico.cicerone.contentproviderexample.Contract.StoreContract;
 
 /**
  * Created by cicerone on 09/01/15.

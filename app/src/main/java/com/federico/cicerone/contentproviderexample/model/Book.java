@@ -2,7 +2,7 @@ package com.federico.cicerone.contentproviderexample.model;
 
 import android.content.ContentValues;
 
-import com.federico.cicerone.contentproviderexample.contract.BookContract;
+import com.federico.cicerone.contentproviderexample.Contract.BookContract;
 
 /**
  * Created by cicerone on 09/01/15.

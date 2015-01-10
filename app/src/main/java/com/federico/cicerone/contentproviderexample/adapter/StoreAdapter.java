@@ -9,7 +9,7 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import com.federico.cicerone.contentproviderexample.R;
-import com.federico.cicerone.contentproviderexample.contract.StoreContract;
+import com.federico.cicerone.contentproviderexample.Contract.StoreContract;
 
 /**
  * Created by cicerone on 10/01/15.
