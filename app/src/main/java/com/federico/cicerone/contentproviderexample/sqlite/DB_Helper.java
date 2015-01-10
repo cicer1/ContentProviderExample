@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.federico.cicerone.contentproviderexample.Contract.BookContract;
-import com.federico.cicerone.contentproviderexample.Contract.StoreContract;
+import com.federico.cicerone.contentproviderexample.contract.BookContract;
+import com.federico.cicerone.contentproviderexample.contract.StoreContract;
 
 /**
  * Created by cicerone on 09/01/15.
@@ -13,7 +13,7 @@ import com.federico.cicerone.contentproviderexample.Contract.StoreContract;
 public class DB_Helper extends SQLiteOpenHelper {
 
     // Logcat tag
-    private static final String LOG = "DatabaseUserHelper";
+    private static final String LOG = "DatabaseHelper";
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
