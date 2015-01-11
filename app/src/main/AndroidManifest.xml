@@ -16,10 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:name="com.federico.cicerone.contentproviderexample.sqlite.ContentProvider"
+            android:name=".sqlite.ContentProvider"
             android:authorities="com.federico.cicerone.contentprovider" >
         </provider>
+
+        <activity
+            android:name=".Activities.Books"
+            android:label="@string/title_activity_books"
+            android:parentActivityName=".Activities.Stores" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.federico.cicerone.contentproviderexample.Activities.Stores" />
+        </activity>
     </application>
 
 </manifest>

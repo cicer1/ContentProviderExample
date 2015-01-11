@@ -1,6 +1,8 @@
 package com.federico.cicerone.contentproviderexample.Activities;
 
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -25,19 +27,19 @@ public class Stores extends ActionBarActivity {
     private ListView storeList;
     private StoreAdapter storeAdapter;
     private ContentResolver cr;
-    private String logtag = "MainActivity";
+    private String logtag = "StoresActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_stores);
         cr = getContentResolver();
         insertData();
         storeList = (ListView) findViewById( R.id.store_list );
         Cursor cursor = ContentProvider.getAllStores( cr );
         storeAdapter = new StoreAdapter( this, cursor, 0);
         storeList.setAdapter( storeAdapter );
-        StoreClickListener storeClickListener = new StoreClickListener();
+        StoreClickListener storeClickListener = new StoreClickListener(this,cursor);
         storeList.setOnItemClickListener(storeClickListener);
     }
 
@@ -64,7 +66,7 @@ public class Stores extends ActionBarActivity {
         Cursor store_crs =  ContentProvider.getAllStores( cr );
         while ( store_crs.moveToNext()) {
             info += " Store: " + store_crs.getString( store_crs.getColumnIndex( StoreContract.StoreEntry.COLUMN_NAME_NAME ) );
-            Cursor book_crs =  ContentProvider.getAllBooksInStore(cr, store_crs.getInt(store_crs.getColumnIndex(StoreContract.StoreEntry.COLUMN_NAME_ID)));
+            Cursor book_crs =  ContentProvider.getAllBooksInStore(cr, store_crs.getString(store_crs.getColumnIndex(StoreContract.StoreEntry.COLUMN_NAME_ID)));
             while ( book_crs.moveToNext() ){
                 info += " Title: " + book_crs.getString( book_crs.getColumnIndex(BookContract.BookEntry.COLUMN_NAME_TITLE) );
                 info += " Author: " + book_crs.getString( book_crs.getColumnIndex(BookContract.BookEntry.COLUMN_NAME_AUTHOR) );
@@ -97,9 +99,24 @@ public class Stores extends ActionBarActivity {
     }
 
     private class StoreClickListener implements AdapterView.OnItemClickListener{
+        Context context;
+        Cursor store_crs;
+
+        private StoreClickListener(Context ctx, Cursor c) {
+            context = ctx;
+            store_crs = c;
+        }
+
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Log.d(logtag, "click");
+            Intent intent = new Intent(context, Books.class);
+            intent.putExtra( EXTRA.STORE_ID, store_crs.getString( store_crs.getColumnIndex(StoreContract.StoreEntry.COLUMN_NAME_ID)) );
+            startActivity(intent);
         }
+    }
+
+    // Expose extras constant
+    public static class EXTRA {
+        public static String STORE_ID = "store_id";
     }
 }
