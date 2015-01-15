@@ -25,6 +25,31 @@
         <activity
             android:name=".Activities.Books"
             android:label="@string/title_activity_books"
+            android:launchMode="singleTop"
+            android:parentActivityName=".Activities.Stores" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.federico.cicerone.contentproviderexample.Activities.Stores" />
+        </activity>
+        <activity
+            android:name=".Activities.Details"
+            android:label="@string/title_activity_details"
+            android:parentActivityName=".Activities.Books" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.federico.cicerone.contentproviderexample.Activities.Books" />
+        </activity>
+        <activity
+            android:name=".Activities.CreateBook"
+            android:label="@string/title_activity_create_book"
+            android:parentActivityName=".Activities.Books" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.federico.cicerone.contentproviderexample.Activities.Books" />
+        </activity>
+        <activity
+            android:name=".Activities.CreateStore"
+            android:label="@string/title_activity_create_store"
             android:parentActivityName=".Activities.Stores" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

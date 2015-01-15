@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.federico.cicerone.contentproviderexample.Activities.CreateStore">
+    <TextView
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/form_item_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/store_name"
+        android:layout_weight="1" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/form_item_height"
+        android:id="@+id/store_name_et"
+        android:singleLine="true"
+        android:layout_weight="1" />
+    <TextView
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/form_item_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/store_lat"
+        android:layout_weight="1" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/form_item_height"
+        android:inputType="number"
+        android:id="@+id/store_lat_et"
+        android:layout_weight="1" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/form_item_height"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/store_lon"
+        android:layout_weight="1" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/form_item_height"
+        android:inputType="number"
+        android:id="@+id/store_lon_et"
+        android:layout_weight="1" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/form_item_height"
+        android:text="Save"
+        android:id="@+id/button_save_store"
+        android:layout_gravity="center_horizontal"
+        android:onClick="saveStore"/>
+</LinearLayout>

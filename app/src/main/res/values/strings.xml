@@ -4,6 +4,16 @@
     <string name="app_name">Book Stores</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_create_store">Create Store</string>
+    <string name="action_create_book">Create Book</string>
     <string name="title_activity_books">Books</string>
+    <string name="title_activity_details">Details</string>
+    <string name="title_activity_create_book">CreateBook</string>
+    <string name="title_activity_create_store">CreateStore</string>
+    <string name="store_name">Store Name</string>
+    <string name="store_lat">Store Latitude</string>
+    <string name="store_lon">Store Longitude</string>
+    <string name="book_title">Book Title</string>
+    <string name="book_author">Book Author</string>
 
 </resources>

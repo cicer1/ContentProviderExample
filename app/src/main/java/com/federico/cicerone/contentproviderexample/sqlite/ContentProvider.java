@@ -178,7 +178,7 @@ public class ContentProvider extends android.content.ContentProvider {
         return cr.query( CONTENT_URI_STORE,result_columns,where,where_args,order);
     }
 
-    public static Cursor getAllBooksInStore(ContentResolver cr, String store_id) {
+    public static Cursor getAllBooksInStore(ContentResolver cr, int store_id) {
         String[] result_columns = BookContract.BookEntry.COLUMNS;
         String where = BookContract.BookEntry.COLUMN_NAME_STORE_ID+"=" + store_id;
         String[] where_args = null;
