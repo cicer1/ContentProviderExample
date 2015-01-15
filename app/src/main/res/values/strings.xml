@@ -6,6 +6,8 @@
     <string name="action_settings">Settings</string>
     <string name="action_create_store">Create Store</string>
     <string name="action_create_book">Create Book</string>
+    <string name="action_edit_book">Edit Book</string>
+    <string name="action_edit_store">Edit Store</string>
     <string name="title_activity_books">Books</string>
     <string name="title_activity_details">Details</string>
     <string name="title_activity_create_book">CreateBook</string>

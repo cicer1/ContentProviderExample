@@ -5,6 +5,11 @@
     <item
         android:id="@+id/action_create_book"
         android:title="@string/action_create_book"
-        android:orderInCategory="100"
+        android:orderInCategory="1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_edit_store"
+        android:title="@string/action_edit_store"
+        android:orderInCategory="2"
         app:showAsAction="never" />
 </menu>

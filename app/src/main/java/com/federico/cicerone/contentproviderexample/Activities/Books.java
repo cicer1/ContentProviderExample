@@ -2,10 +2,9 @@ package com.federico.cicerone.contentproviderexample.Activities;
 
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.federico.cicerone.contentproviderexample.R;
 import com.federico.cicerone.contentproviderexample.Utils.Constants;
 import com.federico.cicerone.contentproviderexample.Utils.Router;
 import com.federico.cicerone.contentproviderexample.adapter.BookAdapter;
-import com.federico.cicerone.contentproviderexample.adapter.StoreAdapter;
 import com.federico.cicerone.contentproviderexample.model.Book;
 import com.federico.cicerone.contentproviderexample.model.Store;
 import com.federico.cicerone.contentproviderexample.sqlite.ContentProvider;
@@ -35,6 +33,7 @@ public class Books extends ActionBarActivity {
         String storeJSON = getIntent().getExtras().getString( Constants.TOKEN );
         store = Store.fromJSON( storeJSON );
         setContentView(R.layout.activity_books);
+        setTitle(store.getName());
         cr = getContentResolver();
         bookList = (ListView) findViewById( R.id.book_list );
     }
@@ -65,6 +64,9 @@ public class Books extends ActionBarActivity {
 
         if (id == R.id.action_create_book) {
             Router.getInstance().Navigate( this, Router.ENTRIES.TAP_ON_MENU_CREATEBOOK, store.toJSON() );
+        }else
+        if (id == R.id.action_edit_store) {
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

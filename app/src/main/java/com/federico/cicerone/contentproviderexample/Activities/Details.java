@@ -1,20 +1,14 @@
 package com.federico.cicerone.contentproviderexample.Activities;
 
-import android.content.ContentResolver;
-import android.database.Cursor;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.federico.cicerone.contentproviderexample.R;
 import com.federico.cicerone.contentproviderexample.Utils.Constants;
-import com.federico.cicerone.contentproviderexample.adapter.BookAdapter;
 import com.federico.cicerone.contentproviderexample.model.Book;
-import com.federico.cicerone.contentproviderexample.model.Store;
-import com.federico.cicerone.contentproviderexample.sqlite.ContentProvider;
 
 public class Details extends ActionBarActivity {
 
@@ -49,7 +43,7 @@ public class Details extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_edit_book) {
             return true;
         }
 
